@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'screens/welcome_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/signup_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/sign_in_screen.dart';
-import 'screens/sign_up_screen.dart';
-import 'screens/dashboard_screen.dart';
-import 'screens/messages_screen.dart';
+import 'screens/message_screen.dart';
+import 'screens/profile_screen.dart';
+import 'screens/notification_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,13 +16,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/', // Rute awal aplikasi
+      title: 'Flutter Wireframe Project App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: '/welcome',
       routes: {
-        '/': (context) => HomeScreen(), // Halaman Home
-        '/sign-in': (context) => SignInScreen(), // Halaman Sign In
-        '/sign-up': (context) => SignUpScreen(), // Halaman Sign Up
-        '/dashboard': (context) => DashboardScreen(), // Halaman Dashboard
-        '/messages': (context) => MessagesScreen(), // Halaman Messages
+        '/welcome': (context) => WelcomeScreen(),
+        '/': (context) => LoginScreen(),
+        '/signup': (context) => SignupScreen(),
+        '/home': (context) => HomeScreen(),
+        '/messages': (context) => MessagesScreen(),
+        '/profile': (context) => ProfileScreen(),
+        '/notifications': (context) => NotificationsScreen(),
       },
     );
   }
