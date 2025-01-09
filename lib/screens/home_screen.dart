@@ -4,38 +4,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Welcome, William')),
+      appBar: AppBar(
+        title: Text("Home"),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Placeholder Image
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Center(
+                child: Icon(
+                  Icons.image,
+                  size: 100,
+                  color: Colors.grey[700],
+                ),
+              ),
+            ),
+            SizedBox(height: 24),
+
+            // Description Text
             Text(
-              'Keep Moving Up',
-              style: Theme.of(context).textTheme.headlineSmall,
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, color: Colors.black87),
             ),
-            SizedBox(height: 20),
-            Text('Categories'),
-            Wrap(
-              spacing: 8,
-              children: [
-                Chip(label: Text('Category 1')),
-                Chip(label: Text('Category 2')),
-                Chip(label: Text('Category 3')),
-              ],
-            ),
-            SizedBox(height: 20),
-            Text('Top Courses'),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Icon(Icons.book),
-                    title: Text('Course $index'),
-                    subtitle: Text('Description of Course $index'),
-                  );
-                },
+            SizedBox(height: 24),
+
+            // Sign In Button
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/sign-in');
+              },
+              child: Text("Sign In"),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               ),
             ),
           ],

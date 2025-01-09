@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'screens/home_screen.dart';
 import 'screens/sign_in_screen.dart';
-import 'providers/user_provider.dart';
-import 'providers/message_provider.dart';
+import 'screens/sign_up_screen.dart';
+import 'screens/dashboard_screen.dart';
+import 'screens/messages_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,18 +12,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => UserProvider()),
-        ChangeNotifierProvider(create: (_) => MessageProvider()),
-      ],
-      child: MaterialApp(
-        title: 'Wireframe App',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: SignInScreen(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/', // Rute awal aplikasi
+      routes: {
+        '/': (context) => HomeScreen(), // Halaman Home
+        '/sign-in': (context) => SignInScreen(), // Halaman Sign In
+        '/sign-up': (context) => SignUpScreen(), // Halaman Sign Up
+        '/dashboard': (context) => DashboardScreen(), // Halaman Dashboard
+        '/messages': (context) => MessagesScreen(), // Halaman Messages
+      },
     );
   }
 }
